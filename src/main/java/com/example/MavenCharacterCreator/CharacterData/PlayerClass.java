@@ -1,3 +1,5 @@
+package com.example.MavenCharacterCreator.CharacterData;
+
 public enum PlayerClass {
     
     BARBARIAN(12, "Light", "Berserker Rage", "Wildling") {

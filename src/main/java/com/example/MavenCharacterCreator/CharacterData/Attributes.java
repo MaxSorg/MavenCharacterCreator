@@ -1,4 +1,4 @@
-
+package com.example.MavenCharacterCreator.CharacterData;
 
 public class Attributes {  //class to handle attributes  
     int str = 10;          //character created with default 10/0 
