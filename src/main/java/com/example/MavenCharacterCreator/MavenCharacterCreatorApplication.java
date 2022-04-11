@@ -20,14 +20,13 @@ public class MavenCharacterCreatorApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {		
 		PlayerCharacter character = new PlayerCharacter();
-		character.setFirstName("Lynxes");
-		character.setLastName("Moonwalker");
-		characterRepository.save(character);
-
-		PlayerCharacter character1 = new PlayerCharacter();
-		character1.setFirstName("Ayla");
-		character1.setLastName("Arasa");
-		characterRepository.save(character1);
+		character.setpCharID(1);
+		character.setPcharName("Lynxes");
+		character.setThey("she");		
+		character.setThem("her");
+		character.setpClass("Ranger");
+		character.setPlayerRace("Half-elf");
+		characterRepository.save(character);		
 	}
 
 }

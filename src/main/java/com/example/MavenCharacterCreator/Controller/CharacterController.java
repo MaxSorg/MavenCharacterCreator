@@ -7,6 +7,7 @@ import com.example.MavenCharacterCreator.Exception.ResourceNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/characters")
 public class CharacterController {
@@ -33,10 +35,10 @@ public class CharacterController {
         return characterRepository.save(character);
     }
 
-    @GetMapping("{characterName}")
-    public ResponseEntity<PlayerCharacter> getCharacterByName(@PathVariable String characterName) {
-        PlayerCharacter character = characterRepository.findById(characterName)
-            .orElseThrow(() -> new ResourceNotFoundException("Character by: " + characterName + " does not exist"));
+    @GetMapping("{pcharName}")
+    public ResponseEntity<PlayerCharacter> getCharacterByName(@PathVariable String pcharName) {
+        PlayerCharacter character = characterRepository.findById (pcharName)
+            .orElseThrow(() -> new ResourceNotFoundException("Character by: " + pcharName + " does not exist"));
         return ResponseEntity.ok(character);
     }
 }
