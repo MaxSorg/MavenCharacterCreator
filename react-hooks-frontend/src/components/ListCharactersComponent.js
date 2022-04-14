@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import CharacterService from '../services/CharacterService'
 
 const ListCharactersComponent = () => {
@@ -18,7 +19,8 @@ const ListCharactersComponent = () => {
 
     return (
         <div className = "container">
-            <h2> List Characters</h2>
+            <h2> List Characters</h2>            
+            <Link to = "/add-character" className = "btn btn-primary mb-2" > Add Character </Link>
             <table className="table table-bordered table-striped">
                 <thead>
                     <th>Character ID </th>
