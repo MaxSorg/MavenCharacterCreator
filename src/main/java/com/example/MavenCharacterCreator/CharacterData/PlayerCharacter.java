@@ -17,7 +17,7 @@ public class PlayerCharacter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)   
-    private int pCharID;
+    private long pCharID;
 
     @Column(name = "_character_name")
     private String pcharName;
@@ -34,11 +34,11 @@ public class PlayerCharacter {
     @Column(name = "character_class")
     private String pClass;
 
-    public int getpCharID() {
+    public long getpCharID() {
         return pCharID;
     }
 
-    public void setpCharID(int pCharID) {
+    public void setpCharID(long pCharID) {
         this.pCharID = pCharID;
     }
 
