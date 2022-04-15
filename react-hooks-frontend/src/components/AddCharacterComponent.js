@@ -1,4 +1,9 @@
 import React, {useState} from 'react'
+import {
+    useNavigate,
+    Link
+} from 'react-router-dom';
+import CharacterService from '../services/CharacterService';
 
 const AddCharacterComponent = () => {
 
@@ -7,13 +12,23 @@ const AddCharacterComponent = () => {
     const [them, setthem] = useState('')
     const [playerRace, setplayerRace] = useState('')
     const [pClass, setpClass] = useState('')*/
+    const history = useNavigate();
+
 
     const saveCharacter = (e) => {
         e.preventDefault();
 
         const character = {pcharName}
 
-        console.log(character);
+        CharacterService.createCharacter(character).then((response) => {
+
+            console.log(response.data)
+
+            history('/characters');
+
+        }).catch(error => {
+            console.log(error)
+        })
 
     }
     return (
@@ -38,6 +53,7 @@ const AddCharacterComponent = () => {
                                 </input>
                             </div>
                             <button className = "btn btn-success" onClick = {(e) => saveCharacter(e)}> Submit</button>
+                            <Link to ="/characters" className = "btn btn-danger"> Cancel </Link>
                         </form>
                     </div>
                 </div>

@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CharacterRepository extends JpaRepository<PlayerCharacter, String> {
+public interface CharacterRepository extends JpaRepository<PlayerCharacter, Long> {
     // all crud database methods
 }

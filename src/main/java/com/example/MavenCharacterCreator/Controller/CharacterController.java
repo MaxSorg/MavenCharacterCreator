@@ -6,8 +6,10 @@ import com.example.MavenCharacterCreator.Exception.ResourceNotFoundException;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+
 
 @CrossOrigin("*")
 @RestController
@@ -35,10 +39,23 @@ public class CharacterController {
         return characterRepository.save(character);
     }
 
-    @GetMapping("{pcharName}")
-    public ResponseEntity<PlayerCharacter> getCharacterByName(@PathVariable String pcharName) {
-        PlayerCharacter character = characterRepository.findById (pcharName)
-            .orElseThrow(() -> new ResourceNotFoundException("Character by: " + pcharName + " does not exist"));
+    @GetMapping("{pCharID}")
+    public ResponseEntity<PlayerCharacter> getCharacterByID(@PathVariable long pCharID) {
+        PlayerCharacter character = characterRepository.findById(pCharID)
+            .orElseThrow(() -> new ResourceNotFoundException("Character pCharID " + pCharID + " does not exist"));
         return ResponseEntity.ok(character);
     }
+
+    @DeleteMapping("{pCharID}")
+    public ResponseEntity<HttpStatus> deleteCharacter(@PathVariable long pCharID) {
+
+        PlayerCharacter character = characterRepository.findById(pCharID)
+            .orElseThrow(() -> new ResourceNotFoundException("Characters pCharID " + pCharID + " does not exist" ));
+
+        characterRepository.delete(character);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+    }
+
 }

@@ -8,14 +8,26 @@ const ListCharactersComponent = () => {
 
     useEffect(() => {
         
+        getAllCharacters();
+
+    }, [])
+
+    const getAllCharacters = () =>{
         CharacterService.getAllCharacters().then((response) => {
             setCharacters(response.data)
             console.log(response.data);
         }).catch(error => {
             console.log(error);
         })
+    }
 
-    }, [])
+    const deleteCharacter = (pCharID) => {
+        CharacterService.deleteCharacter(pCharID).then((response) => {
+            getAllCharacters();
+        }).catch(error => {
+            console.log(error);
+        })
+    }
 
     return (
         <div className = "container">
@@ -28,6 +40,7 @@ const ListCharactersComponent = () => {
                     <th>Pronouns</th>
                     <th>Class</th>
                     <th>Race</th>
+                    <th>Actions</th>
                 </thead>
                 <tbody>
                     {
@@ -39,6 +52,9 @@ const ListCharactersComponent = () => {
                                 <td> {characters.they}/{characters.them} </td>
                                 <td> {characters.pClass} </td>
                                 <td> {characters.playerRace} </td>
+                                <td>
+                                   <button className= "btn btn-danger" onClick={() => deleteCharacter(characters.pCharID)}> Delete</button> 
+                                </td>
                             </tr>
                         )
                     }
