@@ -1,12 +1,12 @@
 package com.example.MavenCharacterCreator.CharacterData;
 
 public class Attributes {  //class to handle attributes  
-    int str = 10;          //character created with default 10/0 
-    int dex = 10;          //racial bonuses decided later 
-    int con = 10;
-    int intel = 10;
-    int wis = 10;
-    int cha = 10;    
+    public int str = 10;          //character created with default 10/0 
+    public int dex = 10;          //racial bonuses decided later 
+    public int con = 10;
+    public int intel = 10;
+    public int wis = 10;
+    public int cha = 10;    
     //series of public methods to invoke bonus calculation
     //plan is for methods to call the calc method when
     //bonus is required 

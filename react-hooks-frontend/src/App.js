@@ -8,6 +8,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListCharactersComponent from './components/ListCharactersComponent';
 import AddCharacterComponent from './components/AddCharacterComponent';
+import ListRacesComponent from './components/ListRacesComponent';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path = "/" element = {<ListCharactersComponent />}></Route>
           <Route path = "/characters" element = {<ListCharactersComponent />}></Route>
           <Route path = "/add-character" element = {<AddCharacterComponent />}></Route>
+          <Route path = "/races" element = {<ListRacesComponent />}></Route>
         </Routes>      
       </div> 
       <FooterComponent />
