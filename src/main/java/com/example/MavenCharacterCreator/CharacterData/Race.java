@@ -1,11 +1,13 @@
 package com.example.MavenCharacterCreator.CharacterData;
 
+
+
 public enum Race {
     
     HUMAN (0, 0, 0, 0, 0, 0) {
         @Override
         public String printDescription() {
-            String desc = "Humans suck";
+            String desc = "Humans are normal";
             return desc;
             }
         },    
@@ -78,6 +80,7 @@ public enum Race {
         return cha;
     }
 
+    
     public void printRaceFull(){
         String[] attributeName = {"Strength", "Dexterity", "Constitution", "Intelligence", 
         "Wisdom", "Charisma"};
@@ -89,6 +92,15 @@ public enum Race {
             System.out.println(attributeName[i] + ": " + attributeValue[i]);
         }
         System.out.println("");
+    }
+
+    public int[] RaceBonusesFull(){
+       
+        int[] attributeValue = {this.getStr(), this.getDex(), this.getCon(), this.getIntel(),
+        this.getWis(), this.getCha()};        
+       
+        return attributeValue;
+
     }
     
     public static void printBonuses() {
