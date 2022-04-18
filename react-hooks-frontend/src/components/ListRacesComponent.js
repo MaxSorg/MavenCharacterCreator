@@ -10,10 +10,7 @@ const ListRacesComponent = () => {
         
         getAllRaces();
 
-    }, [])    
-    
 
-    
 
     const getAllRaces = () =>{
         RaceService.getAllRaces().then((response) => {
@@ -30,6 +27,7 @@ const ListRacesComponent = () => {
             <table className= "table table-bordered">
                 <thead>
                     <tr>
+
                         <th>Race</th>
                         <th>Strength</th>
                         <th>Dexterity</th>
@@ -54,6 +52,7 @@ const ListRacesComponent = () => {
                     </tr>
                 )
             }
+
                 </tbody>  
             </table>
         </div>
