@@ -90,6 +90,15 @@ public enum Race {
         }
         System.out.println("");
     }
+
+    public int[] RaceBonusesFull(){
+       
+        int[] attributeValue = {this.getStr(), this.getDex(), this.getCon(), this.getIntel(),
+        this.getWis(), this.getCha()};        
+       
+        return attributeValue;
+
+    }
     
     public static void printBonuses() {
         for (Race race : Race.values()) {
