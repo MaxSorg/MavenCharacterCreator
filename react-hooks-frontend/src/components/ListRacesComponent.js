@@ -10,7 +10,6 @@ const ListRacesComponent = () => {
         
         getAllRaces();
 
-    }, [])
 
 
     const getAllRaces = () =>{
@@ -28,17 +27,32 @@ const ListRacesComponent = () => {
             <table className= "table table-bordered">
                 <thead>
                     <tr>
-                        <th>Races</th>
+
+                        <th>Race</th>
                         <th>Strength</th>
+                        <th>Dexterity</th>
+                        <th>Constitution</th>
+                        <th>Intellect</th>
+                        <th>Wisdom</th>
+                        <th>Charisma</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {
-                        (Object.keys(races)).map (
-                            key =>
-                            <tr><td>{key}</td></tr>
-                        )                          
-                    }                               
+                <tbody>                    
+                {
+                    Object.keys(races).map (
+                        raceNames=>
+                        <tr>
+                            <td>{raceNames}</td>
+                            {
+                                races[raceNames].map (
+                                bonus =>                                                                            
+                                <td>{bonus}</td>                                                       
+                            )
+                        }  
+                    </tr>
+                )
+            }
+
                 </tbody>  
             </table>
         </div>
