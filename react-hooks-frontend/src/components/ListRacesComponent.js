@@ -10,7 +10,7 @@ const ListRacesComponent = () => {
         
         getAllRaces();
 
-
+    },[])
 
     const getAllRaces = () =>{
         RaceService.getAllRaces().then((response) => {
@@ -58,5 +58,6 @@ const ListRacesComponent = () => {
         </div>
     )
 }
+
 
 export default ListRacesComponent
